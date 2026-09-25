@@ -1,18 +1,21 @@
-print("欢迎来到哥斯拉酒吧")
+import streamlit as st
 
-wa=input("请输入你的姓名：")
-asb=int(input("请输入你的年龄:"))
-vp=int(input("你的VIP等级是多少？:"))
+# 页面标题
+st.title("哥斯拉酒吧")
+st.subheader("入场资格核验")
 
-if asb>18:
-    print()
-    print(wa)
-    print("已成年允许进入")
-    
-    if vp>50:
-        print("你的vip已达到50级，享有专属服务😘")
+# 输入框
+wa = st.text_input("请输入你的姓名：")
+asb = st.number_input("请输入你的年龄：", min_value=0, max_value=120, value=18)
+vp = st.number_input("你的VIP等级是多少？：", min_value=0, max_value=999, value=0)
+
+# 判断逻辑
+if st.button("提交核验"):
+    if asb > 18:
+        st.success(f"{wa}，已成年允许进入")
+        if vp > 50:
+            st.info("你的vip已达到50级，享有专属服务😘")
+        else:
+            st.info("你是普通用户，没有专属服务")
     else:
-        print("你是普通用户，没有专属服务")
-else:
-    print(wa)
-    print("你是未成年不能进入")
+        st.error(f"{wa}，你是未成年不能进入")
