@@ -1,10 +1,18 @@
-import streamlit as st
+print("欢迎来到哥斯拉酒吧")
 
-st.title("年龄检测器")
-age = st.number_input("请输入你的年龄", min_value=0, max_value=120, value=18)
+wa=input("请输入你的姓名：")
+asb=int(input("请输入你的年龄:"))
+vp=int(input("你的VIP等级是多少？:"))
 
-if st.button("判断是否成年"):
-    if age >= 18:
-        st.success("✅ 你已经成年啦！")
+if asb>18:
+    print()
+    print(wa)
+    print("已成年允许进入")
+    
+    if vp>50:
+        print("你的vip已达到50级，享有专属服务😘")
     else:
-        st.warning("❌ 你还未成年")
+        print("你是普通用户，没有专属服务")
+else:
+    print(wa)
+    print("你是未成年不能进入")
