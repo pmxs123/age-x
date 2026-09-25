@@ -13,7 +13,7 @@ vp = st.number_input("你的VIP等级是多少？：", min_value=0, max_value=99
 if st.button("提交核验"):
     if asb is None:
         st.warning("请填写年龄！")
-    elif asb > 18:
+    elif asb >= 18:
         st.success(f"{wa}，已成年允许进入")
         if vp > 50:
             st.info("你的vip已达到50级，享有专属服务😘")
